@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Keyword Blocker & Redirector",
+  "version": "1.0",
+  "description": "Blocks pages containing specific keywords and redirects to specified URLs",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.ts"]
+    }
+  ]
+}
